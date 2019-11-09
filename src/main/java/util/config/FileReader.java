@@ -1,8 +1,7 @@
 package util.config;
 
-import java.io.File;
-import java.io.IOException;
+import java.util.List;
 
 public interface FileReader{
-    File readPlayersFile() throws IOException;
+    List readPlayersFile() throws Exception;
 }

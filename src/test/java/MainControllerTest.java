@@ -1,22 +1,30 @@
 import controller.MainControllerImpl;
 import org.junit.Test;
-import service.PlayerHandlerImpl;
+import service.PlayServiceImpl;
+import service.PlayerServiceImpl;
+import service.ScoreBoardServiceServiceImpl;
 import service.config.FileReaderImpl;
 import service.config.PropertiesPluginImpl;
 import util.MainController;
-import util.PlayerHandler;
+import util.PlayService;
+import util.PlayerService;
+import util.ScoreBoardService;
 import util.config.FileReader;
 import util.config.PropertiesPlugin;
 
 public class MainControllerTest {
     @Test
-    public void drawScoreBoardTest(){
+    public void drawScoreBoardTestExampleTestData(){
         PropertiesPlugin propertiesPlugin = new PropertiesPluginImpl();
-        FileReader fileReader = new FileReaderImpl(propertiesPlugin);
-        PlayerHandler playerHandler = new PlayerHandlerImpl(fileReader);
-        MainController mainController = new MainControllerImpl(playerHandler);
+        PlayerService playerService = new PlayerServiceImpl();
+        ScoreBoardService scoreBoardService = new ScoreBoardServiceServiceImpl();
 
-        mainController.getScoreBoard();
+        FileReader fileReader = new FileReaderImpl(propertiesPlugin);
+        PlayService playService = new PlayServiceImpl(fileReader);
+
+        MainController mainController = new MainControllerImpl(playService,playerService,fileReader,scoreBoardService);
+
+        mainController.showScoreBoard();
 
     }
 

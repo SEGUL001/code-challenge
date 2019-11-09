@@ -1,28 +1,39 @@
 package controller;
 
+import model.Player;
+import model.ScoreBoard;
 import util.MainController;
-import util.PlayerHandler;
+import util.PlayService;
+import util.PlayerService;
+import util.ScoreBoardService;
+import util.config.FileReader;
 
-import java.io.IOException;
+import java.util.List;
 
 public class MainControllerImpl implements MainController {
 
+   
+   private PlayService playService;
+   private PlayerService playerService;
+   private FileReader fileReader;
+   private ScoreBoardService scoreBoardService;
 
-   private PlayerHandler playerHandler;
-
-
-   public MainControllerImpl( PlayerHandler playerHandler) {
-      this.playerHandler = playerHandler;
+   public MainControllerImpl(PlayService playService, PlayerService playerService, FileReader fileReader, ScoreBoardService scoreBoardService) {
+      this.playService = playService;
+      this.playerService = playerService;
+      this.fileReader = fileReader;
+      this.scoreBoardService = scoreBoardService;
    }
 
-   public void getScoreBoard(){
+   public void showScoreBoard(){
       try{
-         playerHandler.getPlayerList();
+          List fileRecordList = fileReader.readPlayersFile();
 
+         List<Player> playerList = playerService.getPlayers(fileRecordList);
+         ScoreBoard scoreBoard = scoreBoardService.getScoreBoard(fileRecordList, playerList);
+         scoreBoardService.drawScoreBoard(scoreBoard);
 
-
-      }
-      catch (IOException e){
+      } catch (Exception e){
          e.printStackTrace();
       }
    }

@@ -1,22 +1,22 @@
 package model;
 
 public class Play {
-    private String name;
+    private Player player;
     private int score;
 
     public Play(){};
 
-    public Play(String name, int score) {
-        this.name = name;
+    public Play(Player player, int score) {
+        this.player = player;
         this.score = score;
     }
 
-    public String getName() {
-        return name;
+    public Player getPlayer() {
+        return player;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public int getScore() {
