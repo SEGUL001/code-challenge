@@ -1,10 +1,9 @@
 package controller;
 
-import model.Player;
-import util.config.FileReader;
 import util.MainController;
 import util.PlayerHandler;
-import util.config.PropertiesPlugin;
+
+import java.io.IOException;
 
 public class MainControllerImpl implements MainController {
 
@@ -17,12 +16,14 @@ public class MainControllerImpl implements MainController {
    }
 
    public void getScoreBoard(){
+      try{
+         playerHandler.getPlayerList();
 
-   playerHandler.getPlayerList();
 
 
+      }
+      catch (IOException e){
+         e.printStackTrace();
+      }
    }
-
-
-
 }

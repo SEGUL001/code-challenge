@@ -1,8 +1,10 @@
 package util;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 public interface PlayerHandler {
 
-    List getPlayerList();
+    List getPlayerList() throws FileNotFoundException, IOException;
 }

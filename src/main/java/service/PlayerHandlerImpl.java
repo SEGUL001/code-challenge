@@ -1,16 +1,17 @@
 package service;
 
-import model.Player;
-import service.config.FileReaderImpl;
+import model.Play;
 import util.PlayerHandler;
 import util.config.FileReader;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class PlayerHandlerImpl implements PlayerHandler {
+public class PlayerHandlerImpl implements PlayerHandler{
     private FileReader fileReader;
 
     public PlayerHandlerImpl(FileReader fileReader) {
@@ -19,24 +20,37 @@ public class PlayerHandlerImpl implements PlayerHandler {
 
 
 
-    public List getPlayerList(){
+    public List getPlayerList() throws IOException{
+        List<Play> playList = new ArrayList<Play>();
+        Play play = new Play();
+        String[] values;
+
         try {
-            List<Player> playerList = new ArrayList<Player>();
-            String[] values = null;
-            Scanner inputStream = new Scanner(this.fileReader.readPlayersFile());
+            File file = this.fileReader.readPlayersFile();
+            Scanner inputStream = new Scanner(file);
             while (inputStream.hasNextLine()) {
                     String data = inputStream.nextLine();
-                    values = data.split("\\t");
-                    if (values[1] != null) {
-                        Player player = new Player(values[0].toString(), Integer.getInteger(values[1]));
+                    values = data.split("\\s+");
+                    if (values.length > 1) {
+                        try{
+                            play = new Play(values[0].toString(), Integer.parseInt(values[1]));
+                        }
+                        catch (NumberFormatException e){
+                            play = new Play(values[0].toString(), 0);
+                        }
+                        finally {
+                                playList.add(play);
+                        }
                     }
             }
-            return new ArrayList();
+            return playList;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            return null;
+            throw e;
         }
-
+        catch (IOException e) {
+            e.printStackTrace();
+            throw e;
         }
-
+        }
 }

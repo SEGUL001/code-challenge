@@ -4,6 +4,7 @@ import util.config.FileReader;
 import util.config.PropertiesPlugin;
 
 import java.io.File;
+import java.io.IOException;
 
 public class FileReaderImpl implements FileReader {
 
@@ -13,12 +14,7 @@ public class FileReaderImpl implements FileReader {
         this.propertiesPlugin = propertiesPlugin;
     }
 
-    public File readPlayersFile(){
-        try{
+    public File readPlayersFile() throws IOException {
             return new File(propertiesPlugin.getProperty("file"));
-        } catch (Exception e){
-            System.out.println("Error while getting the prop");
-            return null;
-        }
     }
 }
