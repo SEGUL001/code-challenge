@@ -10,15 +10,15 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FileReaderImpl implements FileReader {
-
+    private String key;
     private PropertiesPlugin propertiesPlugin;
-
-    public FileReaderImpl(PropertiesPlugin propertiesPlugin) {
+    public FileReaderImpl(PropertiesPlugin propertiesPlugin, String key) {
         this.propertiesPlugin = propertiesPlugin;
+        this.key = key;
     }
 
     public List<FileRecord> readPlayersFile() throws Exception{
-        File file =  new File(propertiesPlugin.getProperty("file"));
+        File file =  new File(propertiesPlugin.getProperty(key));
         Scanner inputStream = new Scanner(file);
         String[] rawRecord;
         List<FileRecord> fileRecords = new ArrayList<>();

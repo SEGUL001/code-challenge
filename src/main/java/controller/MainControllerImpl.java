@@ -1,7 +1,7 @@
 package controller;
 
 import model.Player;
-import model.ScoreBoard;
+import service.FrameServiceImpl;
 import util.MainController;
 import util.PlayerService;
 import util.ScoreBoardService;
@@ -14,11 +14,13 @@ public class MainControllerImpl implements MainController {
    private PlayerService playerService;
    private FileReader fileReader;
    private ScoreBoardService scoreBoardService;
-
-   public MainControllerImpl(PlayerService playerService, FileReader fileReader, ScoreBoardService scoreBoardService) {
+   private FrameServiceImpl frameService;
+   public MainControllerImpl(PlayerService playerService, FileReader fileReader,
+                             ScoreBoardService scoreBoardService, FrameServiceImpl frameService) {
       this.playerService = playerService;
       this.fileReader = fileReader;
       this.scoreBoardService = scoreBoardService;
+      this.frameService = frameService;
    }
 
    public void showScoreBoard(){
@@ -26,8 +28,8 @@ public class MainControllerImpl implements MainController {
           List fileRecordList = fileReader.readPlayersFile();
 
          List<Player> playerList = playerService.getPlayers(fileRecordList);
-         ScoreBoard scoreBoard = scoreBoardService.getScoreBoard(fileRecordList, playerList);
-         scoreBoardService.drawScoreBoard(scoreBoard);
+         playerList = frameService.buildFrames(playerList, fileRecordList);
+         scoreBoardService.drawScoreBoard(playerList);
 
       } catch (Exception e){
          e.printStackTrace();

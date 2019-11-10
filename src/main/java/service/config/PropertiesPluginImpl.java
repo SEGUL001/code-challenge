@@ -19,7 +19,7 @@ public class PropertiesPluginImpl implements PropertiesPlugin {
             inputStream = getClass().getClassLoader().getResourceAsStream(propFileName);
             try{
                 prop.load(inputStream);
-                file = prop.getProperty("file");
+                file = prop.getProperty(key);
                 inputStream.close();
             } catch (IOException e){
                 throw e;
