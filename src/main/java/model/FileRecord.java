@@ -2,11 +2,11 @@ package model;
 
 public class FileRecord {
     private String name;
-    private int Score;
+    private String pinFall;
 
-    public FileRecord(String name, int score) {
-        this.setName(name);
-        setScore(score);
+    public FileRecord(String name, String pinFall) {
+        this.name =name;
+        this.pinFall =pinFall;
     }
 
     public String getName() {
@@ -17,11 +17,11 @@ public class FileRecord {
         this.name = name;
     }
 
-    public int getScore() {
-        return Score;
+    public String getPinFall() {
+        return pinFall;
     }
 
-    public void setScore(int score) {
-        Score = score;
+    public void setPinFall(String pinFall) {
+        this.pinFall = pinFall;
     }
 }

@@ -26,12 +26,7 @@ public class FileReaderImpl implements FileReader {
         while (inputStream.hasNextLine()) {
             String data = inputStream.nextLine();
             rawRecord = data.split("\\s+");
-            try{
-                fileRecords.add(new FileRecord(rawRecord[0], Integer.parseInt(rawRecord[1])));
-            }
-            catch (NumberFormatException e){
-                fileRecords.add(new FileRecord(rawRecord[0], 0));
-            }
+            fileRecords.add(new FileRecord(rawRecord[0], rawRecord[1]));
         }
         return fileRecords;
     }

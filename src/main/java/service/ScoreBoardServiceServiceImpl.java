@@ -14,13 +14,14 @@ import java.util.Scanner;
 public class ScoreBoardServiceServiceImpl implements ScoreBoardService {
 
     public void drawScoreBoard(ScoreBoard scoreBoard){
+        //draw scoreboard
     }
 
     public ScoreBoard getScoreBoard(List<FileRecord> fileRecords, List<Player> playerList) throws IOException {
         for (FileRecord fileRecord : fileRecords){
             for (Player player : playerList){
                 if (fileRecord.getName().equals(player.getName())){
-                    player.getPlayList().add(new Play(player, fileRecord.getScore()));
+                    player.getPlayList().add(new Play(player, fileRecord.getPinFall()));
                 }
             }
         }

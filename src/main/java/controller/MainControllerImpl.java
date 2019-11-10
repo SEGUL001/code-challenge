@@ -3,7 +3,6 @@ package controller;
 import model.Player;
 import model.ScoreBoard;
 import util.MainController;
-import util.PlayService;
 import util.PlayerService;
 import util.ScoreBoardService;
 import util.config.FileReader;
@@ -12,14 +11,11 @@ import java.util.List;
 
 public class MainControllerImpl implements MainController {
 
-   
-   private PlayService playService;
    private PlayerService playerService;
    private FileReader fileReader;
    private ScoreBoardService scoreBoardService;
 
-   public MainControllerImpl(PlayService playService, PlayerService playerService, FileReader fileReader, ScoreBoardService scoreBoardService) {
-      this.playService = playService;
+   public MainControllerImpl(PlayerService playerService, FileReader fileReader, ScoreBoardService scoreBoardService) {
       this.playerService = playerService;
       this.fileReader = fileReader;
       this.scoreBoardService = scoreBoardService;

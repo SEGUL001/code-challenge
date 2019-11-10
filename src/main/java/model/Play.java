@@ -2,13 +2,13 @@ package model;
 
 public class Play {
     private Player player;
-    private int score;
+    private String pinFall;
 
     public Play(){};
 
-    public Play(Player player, int score) {
+    public Play(Player player, String pinFall) {
         this.player = player;
-        this.score = score;
+        this.pinFall = pinFall;
     }
 
     public Player getPlayer() {
@@ -19,11 +19,11 @@ public class Play {
         this.player = player;
     }
 
-    public int getScore() {
-        return score;
+    public String getPinFall() {
+        return pinFall;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setPinFall(String pinFall) {
+        this.pinFall = pinFall;
     }
 }
