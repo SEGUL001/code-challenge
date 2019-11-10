@@ -13,15 +13,7 @@ public class FileRecord {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getPinFall() {
         return pinFall;
-    }
-
-    public void setPinFall(String pinFall) {
-        this.pinFall = pinFall;
     }
 }

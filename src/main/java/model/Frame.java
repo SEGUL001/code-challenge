@@ -30,10 +30,6 @@ public class Frame {
         return secondChance;
     }
 
-    public void setSecondChance(String secondChance) {
-        this.secondChance = secondChance;
-    }
-
     public int getScore() {
         return score;
     }

@@ -17,7 +17,7 @@ public class FrameServiceImpl implements FrameService {
         this.playService = playService;
     }
 
-    public List<Player> buildFrames(List<Player> players, List<FileRecord> fileRecord) throws IOException {
+    public List<Player> buildFrames(List<Player> players, List<FileRecord> fileRecord)  {
 
         for (Player player: players){
             player.setPlayList(playService.buildPlayList(fileRecord, player));
