@@ -27,7 +27,7 @@ public class MainControllerImpl implements MainController {
       try{
           List fileRecordList = fileReader.readPlayersFile();
 
-         List<Player> playerList = playerService.getPlayers(fileRecordList);
+         List playerList = playerService.getPlayers(fileRecordList);
          playerList = frameService.buildFrames(playerList, fileRecordList);
          scoreBoardService.drawScoreBoard(playerList);
 
