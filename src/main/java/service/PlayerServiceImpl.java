@@ -1,6 +1,6 @@
 package service;
 
-import model.FileRecord;
+import model.config.FileRecord;
 import model.Player;
 import util.PlayerService;
 

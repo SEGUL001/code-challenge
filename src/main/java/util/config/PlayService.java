@@ -1,6 +1,6 @@
 package util.config;
 
-import model.FileRecord;
+import model.config.FileRecord;
 import model.Play;
 import model.Player;
 

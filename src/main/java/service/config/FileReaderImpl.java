@@ -1,6 +1,6 @@
 package service.config;
 
-import model.FileRecord;
+import model.config.FileRecord;
 import util.config.FileReader;
 import util.config.PropertiesPlugin;
 

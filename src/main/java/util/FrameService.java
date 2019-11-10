@@ -1,6 +1,6 @@
 package util;
 
-import model.FileRecord;
+import model.config.FileRecord;
 import model.Player;
 
 import java.io.IOException;
