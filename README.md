@@ -11,3 +11,5 @@ mvn clean package
 ScoreBoards for each file are going to be printed as output.-
 
 For change a data set, go to config.properties file and add the respective key with the file path. 
+
+Java 8 streams has been used on PlayerServiceImpl
