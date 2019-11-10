@@ -1,4 +1,5 @@
 import controller.MainControllerImpl;
+import org.junit.Assert;
 import org.junit.Test;
 import service.FrameServiceImpl;
 import service.PlayServiceImpl;
@@ -25,7 +26,7 @@ public class MainControllerTest {
 
         MainController mainController = new MainControllerImpl(playerService,fileReader,scoreBoardService, frameService);
 
-        mainController.showScoreBoard();
+        Assert.assertTrue(mainController.showScoreBoard());
 
     }
 
@@ -41,7 +42,7 @@ public class MainControllerTest {
 
         MainController mainController = new MainControllerImpl(playerService,fileReader,scoreBoardService, frameService);
 
-        mainController.showScoreBoard();
+        Assert.assertTrue(mainController.showScoreBoard());
 
     }
 
@@ -57,7 +58,7 @@ public class MainControllerTest {
 
         MainController mainController = new MainControllerImpl(playerService,fileReader,scoreBoardService, frameService);
 
-        mainController.showScoreBoard();
+        Assert.assertTrue(mainController.showScoreBoard());
 
     }
 }

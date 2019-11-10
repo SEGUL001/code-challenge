@@ -22,16 +22,21 @@ public class MainControllerImpl implements MainController {
       this.frameService = frameService;
    }
 
-   public void showScoreBoard(){
+   public boolean showScoreBoard(){
       try{
           List fileRecordList = fileReader.readPlayersFile();
 
          List playerList = playerService.getPlayers(fileRecordList);
          playerList = frameService.buildFrames(playerList, fileRecordList);
          scoreBoardService.drawScoreBoard(playerList);
-
+         return true;
+      }
+      catch (NullPointerException | ArrayIndexOutOfBoundsException e){
+         System.out.println("Invalid data-set !");
+         return false;
       } catch (Exception e){
          e.printStackTrace();
+         return false;
       }
    }
 }
